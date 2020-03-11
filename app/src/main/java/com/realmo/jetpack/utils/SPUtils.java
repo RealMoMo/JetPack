@@ -1,4 +1,4 @@
-﻿package com.realmo.jetpack.utils;
+package com.realmo.jetpack.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;

@@ -12,7 +12,26 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.realmo.jetpack.ui.fragment.login.RegisterFragment"
-        android:label="RegisterFragment" />
+        android:label="RegisterFragment" >
+
+        <!--
+        argument标签
+
+        属性	                作用
+        android:name	        标签名字
+        app:argType	            标签的类型
+        android:defaultValue	默认值
+
+        -->
+
+
+        <argument
+            android:name="email"
+            android:defaultValue="10086@qq.com"
+            app:argType="string"
+            />
+
+    </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.realmo.jetpack.ui.fragment.login.WelcomeFragment"

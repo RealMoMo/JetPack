@@ -14,7 +14,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavOptions;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
 /**
@@ -53,10 +52,10 @@ public class WelcomeFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_login:{
-
+                toLoginFragment();
             }break;
             case R.id.btn_register:{
-
+                toRegisterFragment();
             }break;
             default:break;
         }
@@ -64,6 +63,8 @@ public class WelcomeFragment extends Fragment implements View.OnClickListener {
 
 
     private void toLoginFragment(){
+
+        //=================基本方式： 根据id跳转=============================
         NavOptions.Builder builder = new NavOptions.Builder();
         builder.setPopEnterAnim(R.anim.common_slide_in_left)
                 .setPopExitAnim(R.anim.common_slide_out_right)
@@ -84,11 +85,23 @@ public class WelcomeFragment extends Fragment implements View.OnClickListener {
          */
 
 
-        NavHostFragment.findNavController(this).navigate(R.id.btn_login,bundle,navOptions);
+        NavHostFragment.findNavController(this).navigate(R.id.loginFragment,bundle,navOptions);
 
     }
 
     private void toRegisterFragment(){
+        //===========利用Safe Args插件生成的代码 跳转================
+        //方式1
+//        WelcomeFragmentDirections.ActionWelcomeFragmentToRegisterFragment action
+//                = WelcomeFragmentDirections.actionWelcomeFragmentToRegisterFragment()
+//                .setEmail("realmo@qq.com");
+//        NavHostFragment.findNavController(this).navigate(action);
+
+        //方式2
+        Bundle bundle = new RegisterFragmentArgs.Builder().setEmail("realmo@qq.com").build().toBundle();
+        NavHostFragment.findNavController(this).navigate(R.id.registerFragment,bundle);
+
+
 
     }
 }

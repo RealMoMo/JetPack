@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+apply plugin: 'androidx.navigation.safeargs'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -12,6 +14,11 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    //启用dataBinding
+    dataBinding {
+        enabled true
     }
 
     buildTypes {
@@ -34,6 +41,9 @@ dependencies {
     //navigation 配置
     implementation 'androidx.navigation:navigation-fragment:2.3.0-alpha03'
     implementation 'androidx.navigation:navigation-ui:2.3.0-alpha03'
+
+
     //viewmodel 配置
     implementation 'android.arch.lifecycle:viewmodel:1.1.1'
+
 }

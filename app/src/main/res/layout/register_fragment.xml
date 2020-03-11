@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"
 		xmlns:app="http://schemas.android.com/apk/res-auto"
-		xmlns:tools="http://schemas.android.com/tools">
+		xmlns:tools="http://schemas.android.com/tools">-->
 
-	<data>
-		<!--需要的viewModel,通过mBinding.vm=mViewMode注入-->
+	<!--<data>
+		&lt;!&ndash;需要的viewModel,通过mBinding.vm=mViewMode注入&ndash;&gt;
 		<variable
 			name="model"
 			type="com.joe.jetpackdemo.viewmodel.RegisterModel"
@@ -20,9 +20,12 @@
 			type="Boolean"/>
 
 		<import type="android.view.View"/>
-	</data>
+	</data>-->
 
 	<androidx.constraintlayout.widget.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		tools:context=".ui.fragment.login.WelcomeFragment">
@@ -41,7 +44,7 @@
 			android:paddingEnd="10dp"
 			android:drawablePadding="10dp"
 			android:text="Cancel"
-			android:onClick="@{()->activity.onBackPressed()}"
+
 			android:textColor="@color/colorPrimary"/>
 
 		<TextView
@@ -65,12 +68,12 @@
 			style="@style/CommonEditStyle"
 			app:layout_constraintTop_toBottomOf="@+id/tv_title"
 			android:hint="email address"
-			android:onTextChanged="@{(text, start, before, count)->model.onEmailChanged(text)}"
+
 			android:layout_marginBottom="20dp"
 			android:drawableStart="@drawable/register_ic_email"
 			app:layout_constraintVertical_chainStyle="packed"
 			app:layout_constraintBottom_toTopOf="@+id/et_account"
-			android:text="@{model.mail}"
+
 			tools:ignore="MissingConstraints"/>
 
 		<EditText
@@ -79,10 +82,10 @@
 			app:layout_constraintVertical_bias="0.3"
 			app:layout_constraintTop_toBottomOf="@+id/et_email"
 			app:layout_constraintBottom_toTopOf="@+id/et_pwd"
-			android:onTextChanged="@{(text, start, before, count)->model.onNameChanged(text)}"
+
 			android:hint="account"
 			android:drawableStart="@drawable/common_ic_account"
-			android:text="@{model.n}"
+
 			tools:ignore="MissingConstraints"/>
 
 		<EditText
@@ -93,9 +96,9 @@
 			android:layout_marginTop="20dp"
 			android:inputType="textPassword"
 			android:hint="password"
-			android:onTextChanged="@{(text, start, before, count)->model.onPwdChanged(text)}"
+
 			android:drawableStart="@drawable/common_ic_pwd"
-			android:text="@{model.p}"
+
 			tools:ignore="MissingConstraints"/>
 
 
@@ -104,11 +107,12 @@
 			style="@style/CommonButtonStyle"
 			app:layout_constraintTop_toTopOf="parent"
 			app:layout_constraintVertical_bias="0.8"
-			android:enabled="@{isEnable}"
+
 			android:text="Sign UP"
 			app:layout_constraintBottom_toBottomOf="parent"
 			tools:ignore="MissingConstraints"/>
 
 
 	</androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+<!--
+</layout>-->
