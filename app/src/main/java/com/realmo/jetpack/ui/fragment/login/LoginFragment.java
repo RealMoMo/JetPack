@@ -5,9 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.realmo.jetpack.R;
-import com.realmo.jetpack.utils.Constant;
-import com.realmo.jetpack.utils.DefaultLogger;
+import com.realmo.jetpack.databinding.LoginFragmentBinding;
+import com.realmo.jetpack.viewmodel.LoginModel;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,7 +26,9 @@ public class LoginFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.login_fragment,container,false);
+        LoginFragmentBinding binding = LoginFragmentBinding.inflate(inflater, container, false);
+        binding.setModel(new LoginModel("newline","123456",getContext()));
+        return  binding.getRoot();
     }
 
 
@@ -35,7 +36,7 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        String userName = getArguments().getString(Constant.SP_KEY_USER_NAME, Constant.DEFAULT_LOGIN_NAME);
-        DefaultLogger.debug("username:"+userName);
+//        String userName = getArguments().getString(Constant.SP_KEY_USER_NAME, Constant.DEFAULT_LOGIN_NAME);
+//        DefaultLogger.debug("username:"+userName);
     }
 }
