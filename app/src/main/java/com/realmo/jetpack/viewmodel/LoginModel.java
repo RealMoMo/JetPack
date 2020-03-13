@@ -1,5 +1,6 @@
 package com.realmo.jetpack.viewmodel;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
@@ -42,6 +43,9 @@ public class LoginModel {
 
             if(Constant.DEFAULT_LOGIN_PASSWORD.equals(pwd.get())){
                 loginSuccess();
+                if(context instanceof Activity){
+                    ((Activity) context).finish();
+                }
             }else{
                 Toast.makeText(context, "Password not correct", Toast.LENGTH_SHORT).show();
             }
@@ -56,7 +60,6 @@ public class LoginModel {
         Intent intent = new Intent(context, MainActivity.class);
         context.startActivity(intent);
     }
-
 
 
 

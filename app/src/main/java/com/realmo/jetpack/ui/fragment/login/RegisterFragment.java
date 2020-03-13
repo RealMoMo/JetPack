@@ -5,8 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.realmo.jetpack.R;
+import com.realmo.jetpack.databinding.RegisterFragmentBinding;
 import com.realmo.jetpack.utils.DefaultLogger;
+import com.realmo.jetpack.viewmodel.RegisterModel;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,7 +26,10 @@ public class RegisterFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.register_fragment,container,false);
+        RegisterFragmentBinding binding = RegisterFragmentBinding.inflate(inflater,container,false);
+        binding.setModel(new RegisterModel("","","",getContext()));
+        binding.setActivity(getActivity());
+        return binding.getRoot();
     }
 
 
@@ -33,10 +37,11 @@ public class RegisterFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        initData();
+        //initData();
     }
 
     private void initData() {
+        //获取参数方式2
         String email = RegisterFragmentArgs.fromBundle(getArguments()).getEmail();
         DefaultLogger.debug("email:"+email);
     }
